@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="bn">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <title>Limon Refrigerator — Online Admin</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+    <header>
+        <div class="top">
+            <div>
+                <div class="brand">🧊 Limon Refrigerator</div>
+                <div class="sub">ফ্রিজ ভাড়া ও কাস্টমার হিসাব — Online</div>
+            </div>
+            <div style="display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end"><button class="alt" type="button"
+                    id="customerBtn">👤 Customer Login</button><button type="button" id="addBtn">+ কাস্টমার</button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="status" id="status"></div>
+        <div class="cards">
+            <div class="card">
+                <div class="lbl">নির্বাচিত মাসের কাস্টমার</div>
+                <div class="num" id="sCustomers">0</div>
+            </div>
+            <div class="card">
+                <div class="lbl">নির্বাচিত মাসের ফ্রিজ</div>
+                <div class="num" id="sFridges">0</div>
+            </div>
+            <div class="card">
+                <div class="lbl" id="paidLabel">এই মাসের আদায়</div>
+                <div class="num" id="sPaid">৳0</div>
+            </div>
+            <div class="card">
+                <div class="lbl" id="dueLabel">এই মাসের বকেয়া</div>
+                <div class="num" id="sDue">৳0</div>
+            </div>
+        </div>
+        <div class="toolbar"><input id="search" class="search"
+                placeholder="নাম / মোবাইল / ফ্রিজ কোড / ঠিকানা খুঁজুন"><select id="monthSelect" class="monthSelect"
+                aria-label="মাস নির্বাচন"></select><select id="filter">
+                <option value="all">সব কাস্টমার</option>
+                <option value="new">নির্বাচিত মাসে যোগ হওয়া কাস্টমার</option>
+                <option value="paid">নির্বাচিত মাসে আদায়</option>
+                <option value="due">নির্বাচিত মাসে বকেয়া</option>
+            </select><button class="alt" type="button" id="backupBtn">💾 Backup</button><button type="button"
+                id="refreshBtn">🔄 Refresh</button><button type="button" id="printBtn">🖨️ Print</button></div>
+        <div class="printHead" id="printHead">Limon Refrigerator — নির্বাচিত মাসের হিসাব</div>
+        <div class="panel">
+            <div class="title">কাস্টমার তালিকা</div>
+            <div class="scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>নাম</th>
+                            <th>মোবাইল</th>
+                            <th>ফ্রিজ কোড</th>
+                            <th>ফ্রিজ</th>
+                            <th>ভাড়া</th>
+                            <th>নির্বাচিত মাস</th>
+                            <th>মোট আদায়</th>
+                            <th>মোট বকেয়া</th>
+                            <th>কাজ</th>
+                        </tr>
+                    </thead>
+                    <tbody id="list"></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <div class="modal" id="customerModal">
+        <div class="box">
+            <h2 id="customerTitle">নতুন কাস্টমার</h2>
+            <div class="form"><label>নাম*<input id="name"></label><label>মোবাইল<input id="phone"
+                        inputmode="tel"></label><label>ফ্রিজ কোড<input id="fridgeCode" type="text"
+                        placeholder="যেমন: LR-001"></label><label>ফ্রিজ সংখ্যা<input id="fridge" type="number" min="1"
+                        value="1"></label><label>মাসিক ভাড়া<input id="rent" type="number"
+                        min="0"></label><label>ব্র্যান্ড<input id="brand"></label><label>শুরু তারিখ<input id="start"
+                        type="date"></label><label>অগ্রিম<input id="advance" type="number" min="0"
+                        value="0"></label><label>ঠিকানা<input id="address"></label></div>
+            <div class="end"><button class="gray" type="button" id="cancelCustomer">বাতিল</button><button type="button"
+                    id="saveCustomerBtn">সংরক্ষণ</button></div>
+        </div>
+    </div>
+    <div class="modal" id="monthsModal">
+        <div class="box">
+            <h2 id="monthsTitle"></h2>
+            <div id="accountSummary" class="summary"></div>
+            <div id="months" class="months"></div>
+            <div class="end"><button class="gray" type="button" id="closeMonths">বন্ধ</button></div>
+        </div>
+    </div>
+    <script src="admin.js"></script>
+</body>
+
+</html>

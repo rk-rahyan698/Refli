@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="bn">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <title>Limon Refrigerator — Customer</title>
+    <link rel="stylesheet" href="customer.css">
+</head>
+
+<body>
+    <header>
+        <div class="top">
+            <div>
+                <div class="brand">🧊 Limon Refrigerator</div>
+                <div class="sub">কাস্টমার হিসাব নিকাশ — Online</div>
+            </div><button class="gray noPrint" id="logoutBtn" style="display:none">লগআউট</button>
+        </div>
+    </header>
+    <main>
+        <section class="panel login" id="loginBox">
+            <h2>🔐 Customer Login</h2>
+            <div class="hint">আপনার ফ্রিজ কোড লিখে অনলাইন হিসাব দেখতে লগইন করুন।</div><input id="code"
+                placeholder="ফ্রিজ কোড — যেমন LR-001" autocomplete="off">
+            <div style="margin-top:10px"><button id="loginBtn" style="width:100%">Login</button></div>
+            <div class="err" id="error"></div>
+        </section>
+        <section id="accountBox" class="hidden">
+            <div class="panel profile">
+                <div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start">
+                    <div>
+                        <h2 id="custName"></h2>
+                        <div class="hint" id="custCode"></div>
+                    </div><button class="noPrint" id="printBtn">🖨️ প্রিন্ট</button>
+                </div>
+                <div class="info">
+                    <div><b>মোবাইল:</b> <span id="phone"></span></div>
+                    <div><b>ঠিকানা:</b> <span id="address"></span></div>
+                    <div><b>ফ্রিজ:</b> <span id="fridge"></span></div>
+                    <div><b>মাসিক ভাড়া:</b> <span id="rent"></span></div>
+                </div>
+                <div class="profileGrid">
+                    <div class="stat">
+                        <div class="lbl">মোট আদায়</div>
+                        <div class="num" id="totalPaid">৳0</div>
+                    </div>
+                    <div class="stat">
+                        <div class="lbl">মোট বকেয়া</div>
+                        <div class="num" id="totalDue">৳0</div>
+                    </div>
+                    <div class="stat">
+                        <div class="lbl">হিসাবের মাস</div>
+                        <div class="num" id="totalMonths">0</div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="title">মাসভিত্তিক হিসাব</div>
+                <div class="monthbar"><select id="yearSelect" aria-label="সাল নির্বাচন"></select><select
+                        id="monthSelect" aria-label="মাস নির্বাচন"></select></div>
+                <div class="scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>মাস</th>
+                                <th>মাসিক ভাড়া</th>
+                                <th>জমা টাকা</th>
+                                <th>জমার তারিখ</th>
+                                <th>বকেয়া</th>
+                                <th>অবস্থা</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="customer.js"></script>
+</body>
+
+</html>
