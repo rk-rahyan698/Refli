@@ -1,6 +1,6 @@
 "use strict";
-const SUPABASE_URL = "https://smfuvhiaocghulpqzxfl.supabase.co",
-  SUPABASE_KEY = "sb_publishable_ok9bRG-NQBe9_94YrGPKEw_OI_0lDOc",
+const SUPABASE_URL = "https://olryjrwplydbyjeaetoo.supabase.co",
+  SUPABASE_KEY = "sb_publishable_z0WIb54qmBpkI1izjbXy6A_Z8j_vAdV",
   API = SUPABASE_URL + "/rest/v1";
 let current = null,
   payments = [];
